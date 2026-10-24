@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {comparisonSummary} from '../public/comparison.js';
+const route=(score,time=600)=>({assessment:score===null?null:{score},summary:{time}});
+const plan=(a,b,goal='safety')=>({safest:a,quickest:b,compared:2,goal});
+test('comparison shows exposure reduction and added minutes',()=>{const r=comparisonSummary(plan(route(60,780),route(100)));assert.equal(r.headline,'40% lower');assert.equal(r.time,'+3 min vs. quickest');});
+test('missing data never produces a safety percentage',()=>{assert.equal(comparisonSummary(plan(route(null),route(100))).percent,null);});
+test('same route is recognized without inventing improvement',()=>{const a=route(40);assert.equal(comparisonSummary(plan(a,a)).kind,'same');});
+test('crossing preference cannot hide higher total exposure',()=>{const r=comparisonSummary(plan(route(120),route(100),'crossings'));assert.equal(r.kind,'higher');assert.match(r.detail,/20% higher/);});
+test('zero baseline and a single candidate do not produce percentages',()=>{assert.equal(comparisonSummary(plan(route(0),route(0))).percent,null);assert.equal(comparisonSummary({...plan(route(50),route(50)),compared:1}).kind,'single');});

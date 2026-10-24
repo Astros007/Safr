@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {searchArea,rankPlaces,placeLabel,searchParams} from '../public/place-search.js';
+const area=searchArea([29.76,-95.37]);
+const place=(name,lon,lat,extra={})=>({properties:{name,...extra},geometry:{coordinates:[lon,lat]}});
+test('local search is bounded and closer matches come first',()=>{const far=place('Cafe',2,49),near=place('Cafe',-95.371,29.76),other=place('Cafe',-95.4,29.76);assert.deepEqual(rankPlaces([far,other,near],'Cafe',area),[near,other]);assert.ok(searchParams('Cafe',area,14).has('bbox'));assert.equal(searchParams('Cafe',area,14,false).has('bbox'),false)});
+test('exact house numbers outrank incomplete street matches',()=>{const street=place('Main Street',-95.37,29.76),address=place('Main Street',-95.38,29.76,{housenumber:'5755',street:'Main Street'});assert.equal(rankPlaces([street,address],'5755 Main',area)[0],address);assert.equal(placeLabel(address).title,'5755 Main Street')});
+test('labels retain full addresses and duplicate results are removed',()=>{const p=place('Library',-95.37,29.76,{street:'Main Street',housenumber:'100',city:'Houston',state:'Texas'});assert.match(placeLabel(p).detail,/100 Main Street, Houston, Texas/);assert.equal(rankPlaces([p,p],'Library',area).length,1)});
+test('full addresses outside the map area remain searchable and exact numbers rank first',()=>{const nearby=place('Main Street',-95.37,29.76),suburb=place('Main Street',-95.8,29.8,{housenumber:'5755',street:'Main Street'}),overseas=place('Main Street',2,49,{housenumber:'5755',street:'Main Street'});assert.deepEqual(rankPlaces([nearby,overseas,suburb],'5755 Main Street',area,false),[suburb,overseas,nearby])});
+test('a full address is not pulled back toward the initial map city',()=>{const p=searchParams('700 Congress Avenue Austin',area,14,false);assert.equal(p.has('bbox'),false);assert.equal(p.has('lat'),false);assert.equal(p.get('q'),'700 Congress Avenue Austin')});
+test('fractional map zoom never sends an invalid geocoder zoom',()=>{assert.equal(searchParams('High School',area,14.5,true).get('zoom'),'15');assert.equal(searchParams('High School',area,NaN,true).get('zoom'),'14');assert.equal(searchParams('High School',area,25,true).get('zoom'),'16')});

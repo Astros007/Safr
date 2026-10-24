@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="orange" x1="190" y1="130" x2="814" y2="845" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB32C"/>
+      <stop offset=".48" stop-color="#FF7A20"/>
+      <stop offset="1" stop-color="#FF531B"/>
+    </linearGradient>
+  </defs>
+  <path d="M274 582V330c0-88 71-159 159-159h149c88 0 159 71 159 159v176c0 88-71 159-159 159H423" fill="none" stroke="url(#orange)" stroke-width="79" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="274" cy="618" r="77" fill="#fff"/>
+  <circle cx="274" cy="618" r="52" fill="url(#orange)"/>
+  <path d="M722 92c-12-5-26 1-31 14l-23 57c-5 12 1 26 14 31 12 5 26-1 31-14l23-57c5-12-1-26-14-31Zm89 49c-10-9-25-8-34 2l-41 46c-9 10-8 25 2 34 10 9 25 8 34-2l41-46c9-10 8-25-2-34Zm57 92h-61c-13 0-24 11-24 24s11 24 24 24h61c13 0 24-11 24-24s-11-24-24-24Z" fill="url(#orange)"/>
+  <path d="M707 150c-58 0-105 47-105 105 0 79 105 190 105 190s105-111 105-190c0-58-47-105-105-105Z" fill="url(#orange)" stroke="#fff" stroke-width="22" stroke-linejoin="round"/>
+  <circle cx="707" cy="255" r="31" fill="#fff"/>
+  <text x="512" y="910" text-anchor="middle" fill="url(#orange)" font-family="Arial Rounded MT Bold, Avenir Next Rounded, Arial, sans-serif" font-size="245" font-weight="700" letter-spacing="-18">Safr</text>
+</svg>

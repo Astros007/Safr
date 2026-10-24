@@ -1,0 +1,5 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {censusFeatures,addressSearch} from '../server/address-search.js';
+test('Census address estimates preserve the matched house number and coordinates',()=>{const f=censusFeatures([{matchedAddress:'500 MCKINNEY ST, HOUSTON, TX, 77002',coordinates:{x:-95.37,y:29.76},addressComponents:{streetName:'MCKINNEY',suffixType:'ST',city:'HOUSTON',state:'TX',zip:'77002'}}])[0];assert.equal(f.properties.housenumber,'500');assert.equal(f.properties.estimated,true);assert.deepEqual(f.geometry.coordinates,[-95.37,29.76]);assert.equal(censusFeatures([{coordinates:{x:null,y:null}}]).length,0)});
+test('address lookup rejects cross-site calls and oversized requests',async()=>{const req=(origin,body)=>new Request('https://example.test/api/address-search',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body});assert.equal((await addressSearch(req('https://other.test','{}'))).status,403);assert.equal((await addressSearch(req('https://example.test','x'.repeat(601)))).status,413)});
