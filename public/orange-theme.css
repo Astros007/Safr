@@ -1,0 +1,19 @@
+:root{--blue:#ff6b1f;--ink:#35251d;--muted:#79665b;--line:#eadfd5;--shadow:0 10px 32px #8a431817}
+body{background:#fffaf3;color:var(--ink)}
+.web-version-banner{background:linear-gradient(90deg,#ff9f24,#ff5b1c);color:#fff}
+.brandbar,.planner,.route-dock,.nav-bottom,dialog,.dialog-head{background:#fffdf9;border-color:#f0e2d7}
+.brand{color:#3b291f}.brandmark{background:transparent;box-shadow:none;overflow:hidden}.brandmark img{width:100%;height:100%;object-fit:contain}
+.brandbar #preferences-open,.brandbar .icon-button{color:#d95516;background:#fff7ef;border-color:#f1dfd1}
+.primary{background:linear-gradient(135deg,#ff9f24,#ff5b1c)!important;border-color:#ff651c!important;color:#fff!important;box-shadow:0 5px 15px #ff681f33!important}.primary:hover{background:linear-gradient(135deg,#ffad35,#f45117)!important}
+.secondary,dialog .secondary{background:#fff0e3;color:#d94f12;border-color:#ffddc2}.text-button,dialog .text-button,a,.route-info-button,.inline-button,.destination-icon,.map-control{color:#df5717}
+.mode-toggle{background:#f8ede4;border-color:#eddfd4}.mode-toggle::before{border-color:#f4d7c1}.mode-toggle button.active{color:#e85a17}
+.location-cta{background:#fff2e7;border-color:#ffd7b9;color:#d95213}.location-icon{background:#ffe5d0;color:#e55b18}.location-fields{background:#fff9f3;border-color:#eadfd5}.field-row:focus-within{box-shadow:inset 3px 0 #ff6b1f}.start-dot{border-color:#ff6b1f}
+.safety-hero{background:linear-gradient(140deg,#fff8ef,#ffe9d6);border-color:#ffd0aa;color:#63341e}.safety-hero-label,.safety-hero h2,.safety-time,.comparison-times strong,.safety-metrics td:nth-child(2){color:#d95213}.safety-hero-detail,.estimate-note,.comparison-times span,.safety-metrics th,.safety-metrics td{color:#725044}.safety-time{border-color:#ffd5b5}.safety-metrics td,.safety-metrics tbody th{border-color:#f1d7c4}
+.route-option.selected{border-color:#ff6b1f;background:#fff7ef;box-shadow:0 0 0 1px #ff6b1f16}.route-tag,.directions-route-name{background:#ffe9d6;color:#d95213}.route-label{color:#d95516;border-color:#f2d8c4}
+.map-pill,.map-control,.zoom-controls,.map-legend{background:#fffdf9f2;border-color:#f1e2d6}.map-pill,.map-control,.zoom-controls button{color:#d95516}.map-legend i{background:#ff6b1f}.dimension-control[aria-pressed=true]{background:#ff6b1f;color:#fff;border-color:#ff6b1f}
+.search-result:hover,.search-result[aria-selected=true]{background:#fff2e7}.search-result[aria-selected=true]{box-shadow:inset 3px 0 #ff6b1f}.address-icon,.search-result .address-icon,.search-heading button{background:#fff0e3}.address-icon svg,.search-result .address-icon svg,.search-heading button{color:#e65a18}.search-heading strong,#search-expand,.route-options>summary,.reason-heading,.segment-row b{color:#d95516}
+.preference input{accent-color:#ff6b1f}.connection-icon,.heat-icon,.direction-step>span,.turn-symbol,.navigating .nav-arrow{background:#fff0e3;color:#ed641f}.weather-grid>div,.civic-stats>div{background:#fff4e9;border-color:#ffe1c8}.weather-grid strong,.civic-stats strong{color:#d95618}.weather-card{background:#fff5e8;border-color:#f5dfc8;color:#74523d}.weather-card strong,.weather-card svg{color:#c95a1e}
+.navigating .nav-banner{border-color:#f0dfd3;background:#fffdf9;color:#35251d}.navigating .nav-banner #nav-distance{color:#e85b18}.navigating #voice-toggle{background:#fff0e3;color:#d85618}
+.gps-dot{background:#ff6b1f;box-shadow:0 0 0 8px #ff6b1f22,0 2px 6px #62351f30}.marker-dot{border-color:#ff6b1f}.character-ground{background:#ff7a20b8;box-shadow:0 0 0 5px #ff7a2028,0 3px 6px #6b341f33}
+.popup-actions button,.maplibregl-popup-content .text-button{background:#fff0e3;color:#d95213}.maplibregl-popup-content{border-color:#f0ded0;color:#3e2c22}
+button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,.maplibregl-canvas:focus-visible{outline-color:#ffad73}
