@@ -6,7 +6,6 @@ import {fetchSearch} from './search-network.js?v=19';
 import {searchArea,placeLabel,rankPlaces,searchParams} from './place-search.js?v=20';
 import {comparisonSummary} from './comparison.js';
 import {PROFILES,explainComparison} from './profile-safety.js';
-import {initCommunity} from './community.js?v=21';
 import {createMapKit} from './map-kit.js';
 const L=createMapKit();
 import {metersBetween,decodeShape,routeDistances,projectPosition,maneuverAt} from './geo.js';

@@ -9,8 +9,11 @@ if not source.is_dir():
     raise SystemExit('The public website folder could not be found.')
 shutil.rmtree(target, ignore_errors=True)
 shutil.copytree(source, target)
+(target / '_headers').unlink(missing_ok=True)
+(target / 'community.js').unlink(missing_ok=True)
 p = target / 'app.js'
-s = p.read_text().replace('Allow location in your browser settings', 'Allow location in iPhone Settings → Pathfinder')
+s = p.read_text().replace("import {initCommunity} from './community.js?v=21';\n", '')
+s = s.replace('Allow location in your browser settings', 'Allow location in iPhone Settings → Pathfinder')
 s = s.replace("const community=initCommunity({map,L,state,toast,onChanged:()=>{if(!state.nav)invalidateRoutes()}});", "const community={selectPoint:()=>toast('Shared hazard reports are not connected in this iPhone version.')}; $('community-open').hidden=true;")
 p.write_text(s)
 p = target / 'index.html'
