@@ -1,62 +1,50 @@
 # Safr
 
-I made Safr because the fastest walking or biking route is not always the safest one. A route can save a minute while sending someone across a busy intersection or onto a road with fast-moving cars.
+Safr is a walking and biking navigation app that focuses on road safety. It compares route options and recommends the one with less exposure to fast roads and major crossings. It also shows how the safer route compares with the quickest route.
 
-Safr looks for route options and recommends the one with the lowest estimated traffic exposure. It also compares that route with the quickest option so the user can see what the extra time gives them, such as fewer major crossings or more distance on mapped paths.
+## Features
 
-## Main features
+- Walking and biking directions
+- Safer route and quickest route comparison
+- Major crossing and road exposure estimates
+- Address search and current location
+- Turn-by-turn directions with voice guidance
+- Weather, daylight, and reported hazard checks
+- Accessibility profiles
 
-- Walking and cycling directions
-- Route ranking based on traffic safety
-- Comparison with the quickest route
-- Address search and current-location support
-- Turn-by-turn navigation and voice directions
-- Profiles for different accessibility needs
-- Reports for lighting, sidewalk, construction, and other hazards
-- Daylight and weather checks when the data is available
+## How it works
 
-## Route scoring
+Safr gets several possible routes and breaks them into smaller street sections. Each section is scored using available details such as road type, speed, crossings, sidewalks, bike lanes, lighting, and hazards. The app combines those scores and recommends the route with the lowest estimated road exposure.
 
-Safr splits each route into street segments and scores the conditions on each one. The score can use road type, estimated speed, major crossings, sidewalks, bike infrastructure, lighting, crash-risk data, and temporary hazards. The segment scores are combined to compare the complete routes.
+Safety scores are estimates based on available map data. They help compare routes but cannot guarantee that a route is hazard-free.
 
-The safety numbers are estimates based on the map and local data that are available. They are meant to help users compare routes, not guarantee that a route has no hazards.
+## Run the website
 
-## Built with
-
-- JavaScript, HTML, and CSS
-- Swift and WebKit for iOS
-- Cloudflare Workers
-- OpenStreetMap
-- Valhalla routing
-- Drizzle ORM
-
-## Run the web app
-
-Install Node.js 20 or newer, then run:
+You need Node.js 20 or newer.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Wrangler will print the local address, usually `http://localhost:4174`.
+The local site usually opens at `http://localhost:4174`.
 
-Run the web tests with:
+To run the tests:
 
 ```bash
 npm test
 ```
 
-## Open the iOS app
+## Run the iPhone app
 
 Open `ios/Safr.xcodeproj` in Xcode, choose an iPhone or simulator, and press Run.
 
-## Folders
+## Main tools
 
-- `public/` contains the web interface and navigation code.
-- `server/` contains the worker, search, and data code.
-- `db/` and `drizzle/` contain the database schema and migration.
-- `tests/` contains the web tests.
-- `ios/` contains the Xcode project and iPhone version.
+- JavaScript, HTML, and CSS
+- Swift and WebKit
+- Cloudflare Workers
+- OpenStreetMap and Valhalla
+- Drizzle ORM
 
-Created by Sahi Adhikari for the Congressional App Challenge.
+Made by Sahi Adhikari.

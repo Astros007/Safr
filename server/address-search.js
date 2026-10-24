@@ -10,7 +10,7 @@ export async function addressSearch(req){
  const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
  const reply=(body,status=200)=>Response.json(body,{status,headers});
  if(req.method!=='POST')return reply({error:'Use POST'},405);
- if(req.headers.get('Origin')!==new URL(req.url).origin)return reply({error:'Search from Pathfinder'},403);
+ if(req.headers.get('Origin')!==new URL(req.url).origin)return reply({error:'Search from Safr'},403);
  if(!req.headers.get('Content-Type')?.startsWith('application/json'))return reply({error:'JSON required'},415);
  const text=await req.text();if(text.length>600)return reply({error:'Address too long'},413);
  let body;try{body=JSON.parse(text)}catch{return reply({error:'Invalid search'},400)}

@@ -24,7 +24,7 @@ export default {async fetch(req,env,ctx){
   }
   if(req.method==='POST'||req.method==='PATCH'){
    if(!user)return json({error:'Sign in to contribute a report.'},401);
-   if(req.headers.get('Origin')!==url.origin)return json({error:'Please submit from Pathfinder.'},403);
+   if(req.headers.get('Origin')!==url.origin)return json({error:'Please submit from Safr.'},403);
    if(!req.headers.get('Content-Type')?.startsWith('application/json'))return json({error:'JSON required'},415);
    const text=await req.text();if(text.length>2000)return json({error:'Report is too long.'},413);
    let v;try{v=JSON.parse(text)}catch{return json({error:'Invalid report.'},400)}
@@ -41,5 +41,5 @@ export default {async fetch(req,env,ctx){
    }
   }
   return json({error:'Not found'},404);
- }catch(error){console.error('Pathfinder API failure',url.pathname,error.message);return json({error:'This service is temporarily unavailable. Your draft has been kept; please try again.'},503)}
+ }catch(error){console.error('Safr API failure',url.pathname,error.message);return json({error:'This service is temporarily unavailable. Your draft has been kept; please try again.'},503)}
 }};

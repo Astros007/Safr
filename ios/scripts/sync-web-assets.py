@@ -3,10 +3,10 @@
 from pathlib import Path
 import shutil
 root = Path(__file__).resolve().parents[1]
-source = root.parent / 'saferoute' / 'public'
+source = root.parent / 'public'
 target = root / 'Pathfinder' / 'Web'
 if not source.is_dir():
-    raise SystemExit('Place this project beside the saferoute folder before syncing. Bundled assets already work without it.')
+    raise SystemExit('The public website folder could not be found.')
 shutil.rmtree(target, ignore_errors=True)
 shutil.copytree(source, target)
 p = target / 'app.js'
